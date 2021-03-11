@@ -30,7 +30,7 @@ namespace Agent
         {
             string username = usernameBox.Text;
             string password = passwordBox.Password;
-            IUser a = (IUser) (Application.Current.MainWindow as MainWindow).GetUser();
+            IUser a = (IUser) (Application.Current.MainWindow as MainWindow).User;
             a.Login(username, password);
         }
     }

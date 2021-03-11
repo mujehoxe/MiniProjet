@@ -4,24 +4,32 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using Shared;
+
 
 namespace Agent
 {
     public interface IUser
     {
-        int Login(string username, string password);
+        void Login(string username, string password);
     }
 
     public class Employee : IUser
     {
-        private string fullName;
+        public string Fullname { get; set; }
+        public string Username { get; set; }
+        public string Teamid { get; set; }
+        public string Labid { get; set; }
+
+        private Profile profile;
         private Researcher researcher;
-        private Director Director;
+        private Manager manager;
         
-        public int Login(string username, string password)
+        public void Login(string username, string password)
         {
             Debug.WriteLine("loging with " + username + password);
-            return 1;
+            this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
         }
     }
 

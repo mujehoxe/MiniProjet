@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,14 +23,19 @@ namespace Agent
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IUser user;
+        public IUser User { get; set; }
+        public TcpChannel Channel { get; set; }
+        public IAuthenticate AuthenticationObject { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            user = new Employee();
+            User = new Employee();
             MainFrame.Navigate(new LoginPage());
-        }
 
-        public IUser GetUser() { return this.user; }
+            Channel = new TcpChannel();
+            ChannelServices.RegisterChannel(Channel, false);
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/obj");
+        }
     }
 }

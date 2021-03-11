@@ -18,9 +18,9 @@ namespace Agent
     /// <summary>
     /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class Profile : Page
+    public partial class ProfilePage : Page
     {
-        public Profile()
+        public ProfilePage()
         {
             InitializeComponent();
         }
