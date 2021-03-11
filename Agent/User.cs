@@ -30,6 +30,10 @@ namespace Agent
         {
             Debug.WriteLine("loging with " + username + password);
             this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
+            if (this.profile != null)
+                Debug.WriteLine("{0} \t | {1} \t | {2} \t | {3}", profile.Id, profile.Fullname, profile.Username, profile.Teamid, profile.Labid);
+            else
+                Debug.WriteLine("wrong credentials");
         }
     }
 
