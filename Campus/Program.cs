@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using System.Data.SqlClient;
 using System.Configuration;
+using Microsoft.Data.Sqlite;
 
-namespace Compus
+
+namespace Campus
 {
-    class Program
+    static class Program
     {
-        public static SqlConnection SqlConn { get; set; }
+        public static SqliteConnection SqlConn { get; set; }
 
         static void Main(string[] args)
         {
             TcpChannel ch = new TcpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
-            SqlConn = new SqlConnection();
+            string connectionString = "Data Source=C:/Users/o/source/repos/MiniProjet/miniprojdb";
+            SqlConn = new SqliteConnection(connectionString);
 
-            SqlConn.ConnectionString = ConfigurationManager.ConnectionStrings["Compus.Properties.Settings.Database1ConnectionString"].ConnectionString;
-            
             SqlConn.Open();
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ImplementAuthentication),

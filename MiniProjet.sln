@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{D1D39A30-7ACD-4062-93A9-7C37F926BA6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compus", "Compus\Compus.csproj", "{9A25CBDB-774B-484E-8255-405C92D9FC61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Campus", "Campus\Campus.csproj", "{9A25CBDB-774B-484E-8255-405C92D9FC61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agent", "Agent\Agent.csproj", "{0A89F7DA-BC2A-4882-9523-472B007305A1}"
 EndProject

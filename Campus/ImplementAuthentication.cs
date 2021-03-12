@@ -6,21 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compus
+namespace Campus
 {
     class ImplementAuthentication : MarshalByRefObject, IAuthenticate
     {
         public Profile Login(string username, string password)
         {
             Console.WriteLine("loging in with " + username + password);
-            string query = "SELECT id, UserName, FullName, TeamID, LabID " +
-                "FROM Users " +
-                "Where (username='" + username + "' and hash='" + password + "')";
-                ;
-
-            SqlCommand command = new SqlCommand(query, Program.SqlConn);
-
-            using (SqlDataReader reader = command.ExecuteReader())
+            
+            var command = Program.SqlConn.CreateCommand();
+            command.CommandText = @"
+                SELECT id, UserName, FullName, TeamID, LabID
+                FROM user
+                WHERE username = $id and password = $password
+            ";
+            command.Parameters.AddWithValue("$username", username);
+            command.Parameters.AddWithValue("$password", password);
+            
+            using (var  reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
