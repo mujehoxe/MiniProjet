@@ -21,7 +21,7 @@ namespace Campus
             TcpChannel ch = new TcpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
-            string connectionString = "Data Source=C:/Users/o/source/repos/MiniProjet/miniprojdb";
+            string connectionString = "Data Source=./miniprojdb";
             SqlConn = new SqliteConnection(connectionString);
 
             SqlConn.Open();
