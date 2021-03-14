@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Configuration;
 using Microsoft.Data.Sqlite;
+using Shared;
 
 
 namespace Campus
@@ -21,10 +22,21 @@ namespace Campus
             TcpChannel ch = new TcpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
-            string connectionString = "Data Source=./miniprojdb";
+            string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
+            Console.WriteLine(connectionString);
             SqlConn = new SqliteConnection(connectionString);
 
             SqlConn.Open();
+            Console.WriteLine("Database connection " + SqlConn.State);
+            
+            IAuthenticate obj = (IAuthenticate) new ImplementAuthentication();
+            Profile profile = obj.Login("oussama", "oussama");
+            if (profile != null)
+                Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.TeamId);
+            else
+                Console.WriteLine("wrong credentials");
+            
+            
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ImplementAuthentication),
                                                                "obj",

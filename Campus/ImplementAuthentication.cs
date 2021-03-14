@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
 
 namespace Campus
 {
@@ -14,24 +15,34 @@ namespace Campus
         {
             Console.WriteLine("loging in with " + username + password);
             
+            var command = QueryUser(username, password);
+
+            return ReadDataReturnProfile(command);
+        }
+
+        private static SqliteCommand QueryUser(string username, string password)
+        {
             var command = Program.SqlConn.CreateCommand();
             command.CommandText = @"
-                SELECT id, UserName, FullName, TeamID, LabID
-                FROM user
-                WHERE username = $id and password = $password
+                SELECT Id, Fullname, Username, Email, Field ,TeamID
+                FROM employee
+                WHERE Username = $username and Password = $password
             ";
             command.Parameters.AddWithValue("$username", username);
             command.Parameters.AddWithValue("$password", password);
-            
-            using (var  reader = command.ExecuteReader())
+            return command;
+        }
+
+        private static Profile ReadDataReturnProfile(SqliteCommand command)
+        {
+            using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                     return new Profile(reader[0], reader[1], reader[2], reader[3], reader[4]);
+                    return new Profile(reader[0], reader[1], reader[2], reader[3], reader[4], reader[5]);
                 }
                 return null;
             }
-            
         }
 
         public bool Logout()

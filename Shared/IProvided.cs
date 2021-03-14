@@ -15,7 +15,7 @@ namespace Shared
     interface IResearcher
     {
         bool ModifyProfile(Profile profile);
-        bool PublishScientificProduction(SientificProduction S);
+        bool PublishScientificProduction(ScientificProduction S);
     }
     interface ILead
     {

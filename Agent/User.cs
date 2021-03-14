@@ -23,6 +23,7 @@ namespace Agent
         public string Labid { get; set; }
 
         private Profile profile;
+        
         private Researcher researcher;
         private Manager manager;
         
@@ -31,9 +32,9 @@ namespace Agent
             Debug.WriteLine("loging with " + username + password);
             this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
             if (this.profile != null)
-                Debug.WriteLine("{0} \t | {1} \t | {2} \t | {3}", profile.Id, profile.Fullname, profile.Username, profile.Teamid, profile.Labid);
+                Console.WriteLine("{0} \t | {1} \t | {2} \t | {3}| {4}| {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.Teamid);
             else
-                Debug.WriteLine("wrong credentials");
+                Console.WriteLine("wrong credentials");
         }
     }
 
@@ -45,6 +46,7 @@ namespace Agent
 
     class Lead : Researcher
     {
+        private List<ScientificProduction> ScientificProductions;
         
     }
 
