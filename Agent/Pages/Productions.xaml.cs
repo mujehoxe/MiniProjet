@@ -24,5 +24,16 @@ namespace Agent.Pages
 		{
 			InitializeComponent();
 		}
+
+		public Assets.ProductionCard CreateProductionCard(string type, string title, int index)
+		{
+			Assets.ProductionCard productionCard = new Assets.ProductionCard(type, title);
+			this.Grid.Children.Add(productionCard);
+			int column = index % 3;
+			int row = index / 3;
+			Grid.SetColumn(productionCard, column);
+			Grid.SetRow(productionCard, row);
+			return productionCard;
+		}
 	}
 }

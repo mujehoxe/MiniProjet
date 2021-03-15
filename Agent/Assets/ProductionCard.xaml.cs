@@ -18,11 +18,14 @@ namespace Agent.Assets
 	/// <summary>
 	/// Interaction logic for ProductionCard.xaml
 	/// </summary>
-	public partial class ProductionCard : System.Windows.Controls.UserControl
+	public partial class ProductionCard : UserControl
 	{
-		public ProductionCard()
+		public ProductionCard(string type, string title)
 		{
 			InitializeComponent();
+
+			Type.Content = type;
+			Title.Content = title;
 		}
 	}
 }

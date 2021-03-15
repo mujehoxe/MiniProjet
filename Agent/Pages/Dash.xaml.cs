@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Agent
+namespace Agent.Pages
 {
 	/// <summary>
 	/// Interaction logic for Dash.xaml
@@ -23,8 +23,14 @@ namespace Agent
 		public Dash()
 		{
 			InitializeComponent();
-			ProfileFrame.Navigate(new ProfilePage());
-		}
+			Pages.Productions p = new Pages.Productions();
+			ProductionsFrame.Navigate(p);
 
+			for (int i = 0; i < 19; i++)
+			{
+				p.CreateProductionCard("Article" + i, "title" + i, i);
+			}
+
+		}
 	}
 }

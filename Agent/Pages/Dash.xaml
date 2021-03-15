@@ -1,9 +1,10 @@
-﻿<Page x:Class="Agent.Dash"
+﻿<Page x:Class="Agent.Pages.Dash"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Agent"
+      xmlns:local="clr-namespace:Agent.Pages"
+	  xmlns:assets="clr-namespace:Agent.Assets"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Dash">
@@ -20,11 +21,12 @@
 		</Grid.ColumnDefinitions>
 		<Grid Grid.Column="1">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="2*"/>
-				<RowDefinition Height="5*"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
-			
-			<Frame Grid.Row="1" Name="ProductionFrame"/>
+			<assets:Profile/>
+			<Frame Name="ProductionsFrame" Grid.Row="1"/>
+
 		</Grid>
 		<ListBox  HorizontalContentAlignment="Stretch" SelectedItem="0" Background="{DynamicResource PanelColor}">
 			<ListBox.ItemContainerStyle>
