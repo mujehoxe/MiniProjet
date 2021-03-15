@@ -6,23 +6,24 @@
 	  mc:Ignorable="d"
 	  xmlns:local="clr-namespace:Agent.Pages"
 	  d:DesignHeight="450" d:DesignWidth="800"
+	  FontSize="14"
 	  Title="LoginPage">
 
 	<Grid>
-		<ListBox FontSize="14" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FF88ABF2" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" BorderThickness="0" >
+		<StackPanel VerticalAlignment="Center" >
 
-			<StackPanel  Margin="20" Orientation="Horizontal">
+			<StackPanel HorizontalAlignment="Center" Margin="20" Orientation="Horizontal">
 				<TextBlock TextWrapping="Wrap" Text="Username" Width="65" FontFamily="Segoe UI Semibold"/>
 				<TextBox x:Name="usernameBox" AcceptsReturn="False" Width="120" Margin="20,0,0,0" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" Foreground="Black" />
 			</StackPanel>
 
-			<StackPanel  Margin="20" Orientation="Horizontal">
+			<StackPanel HorizontalAlignment="Center" Margin="20" Orientation="Horizontal">
 				<TextBlock TextWrapping="Wrap" Text="Password" Width="65" FontFamily="Segoe UI Semibold"/>
 				<PasswordBox x:Name="passwordBox" Width="120" Margin="20,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" BorderBrush="#88ABF2" />
 			</StackPanel>
 
 			<Button x:Name="loginButton" Margin="20" Content="Login" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="loginButton_Click"/>
 
-		</ListBox>
+		</StackPanel>
 	</Grid>
 </Page>

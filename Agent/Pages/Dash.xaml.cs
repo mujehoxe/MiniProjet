@@ -23,8 +23,11 @@ namespace Agent.Pages
 		public Dash()
 		{
 			InitializeComponent();
-			Pages.Productions p = new Pages.Productions();
+			Assets.Productions p = new Assets.Productions();
 			ProductionsFrame.Navigate(p);
+
+			Assets.Profile profile = new Assets.Profile();
+			ProfileFrame.Content = profile;
 
 			for (int i = 0; i < 19; i++)
 			{
@@ -32,5 +35,7 @@ namespace Agent.Pages
 			}
 
 		}
+
+		public object ProfileInfo { get; }
 	}
 }

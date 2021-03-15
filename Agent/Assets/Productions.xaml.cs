@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
-namespace Agent.Pages
+namespace Agent.Assets
 {
 	/// <summary>
 	/// Interaction logic for Productions.xaml
 	/// </summary>
-	public partial class Productions : Page
+	public partial class Productions : UserControl
 	{
 		public Productions()
 		{
@@ -29,8 +30,12 @@ namespace Agent.Pages
 		{
 			Assets.ProductionCard productionCard = new Assets.ProductionCard(type, title);
 			this.Grid.Children.Add(productionCard);
-			int column = index % 3;
+			int column = index % this.Grid.ColumnDefinitions.Count;
 			int row = index / 3;
+			if (column == 0)
+			{
+				this.Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
+			}
 			Grid.SetColumn(productionCard, column);
 			Grid.SetRow(productionCard, row);
 			return productionCard;
