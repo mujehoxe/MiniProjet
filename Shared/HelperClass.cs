@@ -31,7 +31,7 @@ namespace Shared
     [Serializable]
     public class ScientificProduction
     {
-        public ScientificProduction(string title, string type, string content)
+        public ScientificProduction(string type, string title, string content)
         {
             Type = type;
             Title = title;
