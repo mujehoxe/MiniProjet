@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agent.Assets"
              mc:Ignorable="d">
-    <StackPanel Background="LightGray" VerticalAlignment="Center">
+    <StackPanel Margin="10" Background="LightGray" VerticalAlignment="Center">
 		<Label Padding="10,0" HorizontalAlignment="Center" Name="Type" FontSize="12" FontStyle="Oblique">Type</Label>
 		<Label Padding="10" Name="Title" FontSize="16" FontWeight="Bold">Title</Label>
     </StackPanel>

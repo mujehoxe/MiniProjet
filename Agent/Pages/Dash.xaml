@@ -22,7 +22,7 @@
 
 		<Grid Grid.Column="1">
 			<Grid.Background>
-				<SolidColorBrush Color="gray"/>
+				<SolidColorBrush Color="white"/>
 			</Grid.Background>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="auto"/>
