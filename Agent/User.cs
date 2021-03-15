@@ -19,8 +19,7 @@ namespace Agent
     {
         public string Fullname { get; set; }
         public string Username { get; set; }
-        public string Teamid { get; set; }
-        public string Labid { get; set; }
+        public string TeamId { get; set; }
 
         private Profile profile;
         
@@ -40,18 +39,16 @@ namespace Agent
 
     class Researcher
     {
-        private string teamid;
-     
+        private List<ScientificProduction> ScientificProductions;
     }
 
     class Lead : Researcher
     {
-        private List<ScientificProduction> ScientificProductions;
         
     }
 
     class Manager
     {
-        private string labid;
+        
     }
 }

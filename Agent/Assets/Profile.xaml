@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Agent.Assets"
+		FontSize="14"
       mc:Ignorable="d"
       >
 
@@ -11,20 +12,20 @@
 		<Image Name="ProfilePicture" Margin="20" Height="100" Width="100" HorizontalAlignment="Left" Source="https://img.icons8.com/cotton/2x/person-male.png" Stretch="Fill" />
 		<StackPanel Margin="20" Background="{x:Null}">
 			<StackPanel Orientation="Horizontal">
-				<Label>FullName:</Label>
-				<Label Name="FullName" Foreground="DarkGray">Hello</Label>
+				<Label FontWeight="Bold">FullName:</Label>
+				<Label Name="FullName" Foreground="#FF303030">Hello</Label>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
-				<Label>Roles:</Label>
-				<Label Name="Roles" Foreground="DarkGray">Hello</Label>
+				<Label FontWeight="Bold">Roles:</Label>
+				<Label Name="Roles" Foreground="#FF303030">Hello</Label>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
-				<Label>TeamId:</Label>
-				<Label Name="TeamId" Foreground="DarkGray">Hello</Label>
+				<Label FontWeight="Bold">TeamId:</Label>
+				<Label Name="TeamId" Foreground="#FF303030">Hello</Label>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal">
-				<Label>Email:</Label>
-				<Label Name="Email" Foreground="DarkGray">Hello</Label>
+				<Label FontWeight="Bold">Email:</Label>
+				<Label Name="Email" Foreground="#FF303030">Hello</Label>
 			</StackPanel>
 		</StackPanel>
 	</StackPanel>

@@ -31,12 +31,11 @@ namespace Agent
         {
             InitializeComponent();
             User = new Employee();
-            //MainFrame.Navigate(new Pages.Login());
-            MainFrame.Navigate(new Pages.Dash());
+            MainFrame.Navigate(new Pages.LoginPage());
 
             Channel = new TcpChannel();
             ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/obj");
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://192.168.1.24:8085/obj");
         }
     }
 }

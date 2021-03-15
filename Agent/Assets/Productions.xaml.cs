@@ -14,12 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
-namespace Agent.Pages
+namespace Agent.Assets
 {
 	/// <summary>
 	/// Interaction logic for Productions.xaml
 	/// </summary>
-	public partial class Productions : Page
+	public partial class Productions : UserControl
 	{
 		public Productions()
 		{
