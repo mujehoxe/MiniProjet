@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Agent
+namespace Agent.Assets
 {
-    /// <summary>
-    /// Interaction logic for Profile.xaml
-    /// </summary>
-    public partial class ProfilePage : Page
-    {
-        public ProfilePage()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for Profile.xaml
+	/// </summary>
+	public partial class Profile : UserControl
+	{
+		public Profile()
+		{
+			InitializeComponent();
+		}
+	}
 }
