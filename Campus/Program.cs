@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
@@ -24,12 +20,12 @@ namespace Campus
 
             OpenDatabaseConnection();
 
-            IAuthenticate obj = (IAuthenticate) new ImplementAuthentication();
+            /*IAuthenticate obj = (IAuthenticate) new ImplementAuthentication();
             Profile profile = obj.Login("oussama", "oussama");
             if (profile != null)
                 Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.TeamId);
             else
-                Console.WriteLine("wrong credentials");
+                Console.WriteLine("wrong credentials");*/
             
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ImplementAuthentication),
                                                                "obj",

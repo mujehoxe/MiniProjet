@@ -7,23 +7,25 @@ namespace Shared
     [Serializable]
     public class Profile
     {
-        public Profile(object id, object fullname, object username, object email, object field, object teamid)
+        public Profile(int id, string fullname, string username, string email, string field, int teamid)
         {
-            Id = (long) id;
-            Fullname = (string) fullname;
-            Username = (string) username;
-            Email = (string) email;
-            Field = (string) field;
-            TeamId = (long) teamid;
-            
+            Id = id;
+            Fullname = fullname;
+            Username = username;
+            Email = email;
+            Field = field;
+            TeamId = teamid;
         }
 
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Fullname { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string Field { get; set; }
-        public long TeamId { get; set; }
+        public int TeamId { get; set; }
+        public List<string> Roles { get; set; }
+        public List<ScientificProduction> ScientificProductions { get; set; }
+        
     }
     
     [Serializable]
