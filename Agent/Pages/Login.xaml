@@ -23,7 +23,7 @@
 			</StackPanel>
 
 			<Button x:Name="loginButton" Margin="20" Content="Login" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="loginButton_Click"/>
-
+			<TextBlock x:Name="Errors" HorizontalAlignment="Center" TextTrimming="WordEllipsis" Margin="20" Foreground="#AB2222"/>
 		</StackPanel>
 	</Grid>
 </Page>

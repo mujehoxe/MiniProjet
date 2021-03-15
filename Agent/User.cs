@@ -30,10 +30,32 @@ namespace Agent
         {
             Debug.WriteLine("loging with " + username + password);
             this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
-            if (this.profile != null)
-                Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.TeamId);
-            else
-                Console.WriteLine("wrong credentials");
+            try
+            {
+                if (this.profile != null)
+                {
+                    Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
+                        profile.Username, profile.Email, profile.Field, profile.TeamId);
+
+                    (Application.Current.MainWindow as MainWindow).MainFrame.Navigate(new Pages.Dash(this.profile));
+                }
+                else
+                {
+                    Console.WriteLine("Wrong credentials");
+                    Pages.LoginPage p = new Pages.LoginPage();
+                    p.usernameBox.Text = username;
+                    p.Errors.Text = "wrong credentials, try oussama oussama";
+                    (Application.Current.MainWindow as MainWindow).MainFrame.Navigate(p);
+                }
+            }
+            catch
+            {
+                Console.WriteLine(e.Message);
+                Pages.LoginPage p = new Pages.LoginPage();
+                p.usernameBox.Text = username;
+                p.Errors.Text = e.Message;
+                (Application.Current.MainWindow as MainWindow).MainFrame.Content = p;
+            }
         }
     }
 

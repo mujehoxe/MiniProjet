@@ -20,14 +20,14 @@ namespace Agent.Pages
 	/// </summary>
 	public partial class Dash : Page
 	{
-		public Dash()
+		public Dash(Shared.Profile profile)
 		{
 			InitializeComponent();
 			Assets.Productions p = new Assets.Productions();
 			ProductionsFrame.Navigate(p);
 
-			Assets.Profile profile = new Assets.Profile();
-			ProfileFrame.Content = profile;
+			Assets.Profile profilePage = new Assets.Profile();
+			ProfileFrame.Content = profilePage;
 
 			for (int i = 0; i < 19; i++)
 			{

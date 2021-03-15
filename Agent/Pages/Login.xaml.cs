@@ -34,8 +34,6 @@ namespace Agent.Pages
             var mainwindow = (Application.Current.MainWindow as MainWindow);
             IUser a = (IUser) mainwindow.User;
             a.Login(username, password);
-
-            mainwindow.MainFrame.Navigate(new Pages.Dash());
         }
     }
 }
