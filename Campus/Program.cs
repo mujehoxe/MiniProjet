@@ -3,6 +3,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Configuration;
+using System.Runtime.Remoting.Channels.Http;
 using Microsoft.Data.Sqlite;
 using Shared;
 
@@ -15,7 +16,7 @@ namespace Campus
 
         static void Main(string[] args)
         {
-            TcpChannel ch = new TcpChannel(8085);
+            HttpChannel ch = new HttpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
             OpenDatabaseConnection();
