@@ -31,7 +31,8 @@ namespace Agent
         {
             InitializeComponent();
             User = new Employee();
-            MainFrame.Navigate(new LoginPage());
+            //MainFrame.Navigate(new LoginPage());
+            MainFrame.Navigate(new Dash());
 
             Channel = new TcpChannel();
             ChannelServices.RegisterChannel(Channel, false);
