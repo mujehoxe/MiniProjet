@@ -32,7 +32,7 @@ namespace Agent
             Debug.WriteLine("loging with " + username + password);
             this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
             if (this.profile != null)
-                Console.WriteLine("{0} \t | {1} \t | {2} \t | {3}| {4}| {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.Teamid);
+                Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname, profile.Username, profile.Email, profile.Field, profile.TeamId);
             else
                 Console.WriteLine("wrong credentials");
         }

@@ -22,13 +22,8 @@ namespace Campus
             TcpChannel ch = new TcpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
-            Console.WriteLine(connectionString);
-            SqlConn = new SqliteConnection(connectionString);
+            OpenDatabaseConnection();
 
-            SqlConn.Open();
-            Console.WriteLine("Database connection " + SqlConn.State);
-            
             IAuthenticate obj = (IAuthenticate) new ImplementAuthentication();
             Profile profile = obj.Login("oussama", "oussama");
             if (profile != null)
@@ -36,8 +31,6 @@ namespace Campus
             else
                 Console.WriteLine("wrong credentials");
             
-            
-
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ImplementAuthentication),
                                                                "obj",
                                                              WellKnownObjectMode.Singleton);
@@ -45,6 +38,23 @@ namespace Campus
             Console.Write("Sever is  Ready........");
             Console.Read();
             SqlConn.Close();
+        }
+
+        private static void OpenDatabaseConnection() 
+        {
+            try
+            {
+                string connectionString =
+                    ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
+                SqlConn = new SqliteConnection(connectionString);
+
+                SqlConn.Open();
+                Console.WriteLine("Database connection " + SqlConn.State);
+            }
+            catch
+            {
+                Console.WriteLine("Database connection failed");
+            }
         }
     }
 }
