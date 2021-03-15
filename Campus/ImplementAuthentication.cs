@@ -20,7 +20,44 @@ namespace Campus
             Profile p = ReadDataReturnProfile(command);
             command = QueryUserRoles(p.Id);
             p.Roles = ReadRoles(command);
+            command = QueryUserProducions(p.Id);
+            p.ScientificProductions = ReadProductions(command);
             return p;
+        }
+
+        private List<ScientificProduction> ReadProductions(SqliteCommand command)
+        {
+            List<ScientificProduction> productions = new List<ScientificProduction>();
+            ScientificProduction sc;
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    sc = new ScientificProduction(
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4)
+                    );
+                    productions.Add(sc);
+                }
+            }
+            return productions;
+        }
+
+        private SqliteCommand QueryUserProducions(int userId)
+        {
+            var command = Program.SqlConn.CreateCommand();
+            command.CommandText = @"
+                select *
+                from scientific_productions sp
+                where (
+                    select Id
+                    from employee
+                    where Id = $userId
+                ) = sp.ResearcherId
+            ";
+            command.Parameters.AddWithValue("$userId", userId);
+            return command;
         }
 
         private List<string> ReadRoles(SqliteCommand command)

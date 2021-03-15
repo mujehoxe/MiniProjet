@@ -31,11 +31,11 @@ namespace Shared
     [Serializable]
     public class ScientificProduction
     {
-        public ScientificProduction(object title, object type, object content)
+        public ScientificProduction(string title, string type, string content)
         {
-            Title = (string) title;
-            Type = (string) title;
-            Content = (string) title;
+            Type = type;
+            Title = title;
+            Content = content;
         }
         
         public string Title { get; set; }
