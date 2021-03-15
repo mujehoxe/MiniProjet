@@ -20,9 +20,16 @@ namespace Agent.Assets
 	/// </summary>
 	public partial class Profile : UserControl
 	{
-		public Profile()
+		public Profile(Shared.Profile p)
 		{
 			InitializeComponent();
+			this.FullName.Content = p.Fullname;
+			foreach (string role in p.Roles)
+			{
+				this.Roles.Content += " " + role;
+			}
+			this.TeamId.Content = p.TeamId;
+			this.Email.Content = p.Email;
 		}
 	}
 }

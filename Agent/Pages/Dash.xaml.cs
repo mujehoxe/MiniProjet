@@ -23,17 +23,8 @@ namespace Agent.Pages
 		public Dash(Shared.Profile profile)
 		{
 			InitializeComponent();
-			Assets.Productions p = new Assets.Productions();
-			ProductionsFrame.Navigate(p);
-
-			Assets.Profile profilePage = new Assets.Profile();
-			ProfileFrame.Content = profilePage;
-
-			for (int i = 0; i < 19; i++)
-			{
-				p.CreateProductionCard("Article" + i, "title" + i, i);
-			}
-
+			ProfileFrame.Navigate(new Assets.Profile(profile));
+			ProductionsFrame.Navigate(new Assets.Productions(profile.ScientificProductions));
 		}
 
 		public object ProfileInfo { get; }

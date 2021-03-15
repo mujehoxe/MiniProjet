@@ -12,7 +12,7 @@
 			<RowDefinition Height="auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<Button FontSize="14" Name="AddButton" Content="Add" HorizontalAlignment="Right" Margin="10" />
+		<Button FontSize="14" Name="AddButton" Content="Add" HorizontalAlignment="Right" Margin="10" Click="AddButtonClicked" />
 		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
 			<Grid Name="Grid" VerticalAlignment="Center">
 				<Grid.ColumnDefinitions>

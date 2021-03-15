@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assets\AddProduction.xaml.cs">
+      <DependentUpon>AddProduction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
     <Compile Include="Assets\ProductionCard.xaml.cs">
       <DependentUpon>ProductionCard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Assets\AddProduction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

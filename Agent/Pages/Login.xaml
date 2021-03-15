@@ -14,12 +14,12 @@
 
 			<StackPanel HorizontalAlignment="Center" Margin="20" Orientation="Horizontal">
 				<TextBlock TextWrapping="Wrap" Text="Username" Width="65" FontFamily="Segoe UI Semibold"/>
-				<TextBox x:Name="usernameBox" AcceptsReturn="False" Width="120" Margin="20,0,0,0" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" Foreground="Black" />
+				<TextBox x:Name="usernameBox" AcceptsReturn="False" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
 			</StackPanel>
 
 			<StackPanel HorizontalAlignment="Center" Margin="20" Orientation="Horizontal">
 				<TextBlock TextWrapping="Wrap" Text="Password" Width="65" FontFamily="Segoe UI Semibold"/>
-				<PasswordBox x:Name="passwordBox" Width="120" Margin="20,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" BorderBrush="#88ABF2" />
+				<PasswordBox x:Name="passwordBox" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
 			</StackPanel>
 
 			<Button x:Name="loginButton" Margin="20" Content="Login" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="loginButton_Click"/>

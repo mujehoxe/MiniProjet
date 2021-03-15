@@ -22,15 +22,15 @@
 
 		<Grid Grid.Column="1">
 			<Grid.Background>
-				<SolidColorBrush Color="darkgray"/>
+				<SolidColorBrush Color="gray"/>
 			</Grid.Background>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="auto"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 
-			<Frame Name="ProfileFrame"/>
-			<Frame Name="ProductionsFrame" Grid.Row="1"/>
+			<Frame Name="ProfileFrame" NavigationUIVisibility="Hidden"/>
+			<Frame Name="ProductionsFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 
 		</Grid>
 
