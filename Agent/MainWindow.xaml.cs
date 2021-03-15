@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Http;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Agent
     public partial class MainWindow : Window
     {
         public IUser User { get; set; }
-        public TcpChannel Channel { get; set; }
+        public HttpChannel Channel { get; set; }
         public IAuthenticate AuthenticationObject { get; set; }
 
         public MainWindow()
@@ -33,9 +34,9 @@ namespace Agent
             User = new Employee();
             MainFrame.Navigate(new Pages.LoginPage());
 
-            Channel = new TcpChannel();
+            Channel = new HttpChannel();
             ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://192.168.1.24:8085/obj");
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://localhost:8085/obj");
         }
     }
 }

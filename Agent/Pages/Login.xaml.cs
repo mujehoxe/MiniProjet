@@ -30,8 +30,12 @@ namespace Agent.Pages
         {
             string username = usernameBox.Text;
             string password = passwordBox.Password;
-            IUser a = (IUser) (Application.Current.MainWindow as MainWindow).User;
+
+            var mainwindow = (Application.Current.MainWindow as MainWindow);
+            IUser a = (IUser) mainwindow.User;
             a.Login(username, password);
+
+            mainwindow.MainFrame.Navigate(new Pages.Dash());
         }
     }
 }

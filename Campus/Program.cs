@@ -31,7 +31,7 @@ namespace Campus
                                                                "obj",
                                                              WellKnownObjectMode.Singleton);
 
-            Console.Write("Sever is  Ready........");
+            Console.WriteLine("Sever is  Ready........");
             Console.Read();
             SqlConn.Close();
         }

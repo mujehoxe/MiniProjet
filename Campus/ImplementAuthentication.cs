@@ -18,10 +18,15 @@ namespace Campus
             
             var command = QueryUser(username, password);
             Profile p = ReadDataReturnProfile(command);
-            command = QueryUserRoles(p.Id);
-            p.Roles = ReadRoles(command);
-            command = QueryUserProducions(p.Id);
-            p.ScientificProductions = ReadProductions(command);
+
+            if (p != null)
+            {
+                command = QueryUserRoles(p.Id);
+                p.Roles = ReadRoles(command);
+                command = QueryUserProducions(p.Id);
+                p.ScientificProductions = ReadProductions(command);
+            }
+            
             return p;
         }
 
