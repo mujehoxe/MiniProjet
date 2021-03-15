@@ -16,7 +16,7 @@ namespace Campus
 
         static void Main(string[] args)
         {
-            HttpChannel ch = new HttpChannel(8085);
+            TcpChannel ch = new TcpChannel(8085);
             ChannelServices.RegisterChannel(ch, false);
 
             OpenDatabaseConnection();

@@ -35,7 +35,7 @@ namespace Agent
 
             Channel = new HttpChannel();
             ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://localhost:8085/obj");
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/obj");
         }
     }
 }

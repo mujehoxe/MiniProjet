@@ -32,9 +32,10 @@ namespace Agent
             Debug.WriteLine("loging with " + username + password);
 
 			var mainWindow = (Application.Current.MainWindow as MainWindow);
-            this.profile = mainWindow.AuthenticationObject.Login(username, password);
+            
             try
             {
+                this.profile = mainWindow.AuthenticationObject.Login(username, password);
                 if (this.profile != null)
                 {
                     Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
