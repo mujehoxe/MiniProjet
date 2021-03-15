@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Shared;
 
 
@@ -29,7 +30,9 @@ namespace Agent
         public void Login(string username, string password)
         {
             Debug.WriteLine("loging with " + username + password);
-            this.profile = (Application.Current.MainWindow as MainWindow).AuthenticationObject.Login(username, password);
+
+			var mainWindow = (Application.Current.MainWindow as MainWindow);
+            this.profile = mainWindow.AuthenticationObject.Login(username, password);
             try
             {
                 if (this.profile != null)
@@ -37,39 +40,39 @@ namespace Agent
                     Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
                         profile.Username, profile.Email, profile.Field, profile.TeamId);
 
-                    (Application.Current.MainWindow as MainWindow).MainFrame.Navigate(new Pages.Dash(this.profile));
+                    mainWindow.MainFrame.Navigate(new Pages.Dash(this.profile));
                 }
                 else
                 {
-                    Console.WriteLine("Wrong credentials");
-                    Pages.LoginPage p = new Pages.LoginPage();
-                    p.usernameBox.Text = username;
-                    p.Errors.Text = "wrong credentials, try oussama oussama";
-                    (Application.Current.MainWindow as MainWindow).MainFrame.Navigate(p);
+					Console.WriteLine("Wrong credentials");
+
+                    Pages.LoginPage p = mainWindow.MainFrame.Content as Pages.LoginPage;
+                    p.SetPasswordBox("");
+                    p.SetErrors("Wrong credentials, try oussama oussama");
                 }
             }
-            catch
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message);
-                Pages.LoginPage p = new Pages.LoginPage();
-                p.usernameBox.Text = username;
-                p.Errors.Text = e.Message;
-                (Application.Current.MainWindow as MainWindow).MainFrame.Content = p;
+
+                Pages.LoginPage p = mainWindow.MainFrame.Content as Pages.LoginPage;
+                p.SetErrors(e.Message);
             }
         }
     }
 
-    class Researcher
+    public class Researcher
     {
         private List<ScientificProduction> ScientificProductions;
+        private string Field;
     }
 
-    class Lead : Researcher
+    public class Lead : Researcher
     {
         
     }
 
-    class Manager
+    public class Manager
     {
         
     }

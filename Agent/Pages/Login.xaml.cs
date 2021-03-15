@@ -23,7 +23,8 @@ namespace Agent.Pages
         public LoginPage()
         {
             InitializeComponent();
-            
+            usernameBox.Focus();
+            usernameBox.Select(0, usernameBox.Text.Length);
         }
 
         public void loginButton_Click(object sender, RoutedEventArgs e)
@@ -34,6 +35,19 @@ namespace Agent.Pages
             var mainwindow = (Application.Current.MainWindow as MainWindow);
             IUser a = (IUser) mainwindow.User;
             a.Login(username, password);
+        }
+
+        public void SetUsernameBox(string username)
+        {
+            this.usernameBox.Text = username;
+        }
+        public void SetPasswordBox(string password)
+        {
+            this.passwordBox.Password = password;
+        }
+        public void SetErrors(string errors)
+        {
+            this.Errors.Text = errors;
         }
     }
 }

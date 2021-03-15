@@ -21,9 +21,15 @@ namespace Agent.Assets
 	/// </summary>
 	public partial class Productions : UserControl
 	{
-		public Productions()
+		public Productions(List<Shared.ScientificProduction> productions)
 		{
 			InitializeComponent();
+			int i = 0;
+			foreach (Shared.ScientificProduction sp in productions)
+			{
+				this.CreateProductionCard(sp.Type, sp.Title, i);
+				i++;
+			}
 		}
 
 		public Assets.ProductionCard CreateProductionCard(string type, string title, int index)

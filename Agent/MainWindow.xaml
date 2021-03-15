@@ -8,7 +8,7 @@
 		Title="MainWindow" Height="450" Width="800">
 
     <Grid>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+		<Frame Name="MainFrame" Source="/Pages/Login.xaml" NavigationUIVisibility="Hidden"/>
 	</Grid>
 </Window>
     
