@@ -46,5 +46,11 @@ namespace Agent.Assets
 			Grid.SetRow(productionCard, row);
 			return productionCard;
 		}
+
+		private void AddButtonClicked(object sender, RoutedEventArgs e)
+		{
+			(((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame.Navigate(new Assets.AddProduction());
+			//(this.Parent as Frame).Navigate(new Assets.AddProduction());
+		}
 	}
 }
