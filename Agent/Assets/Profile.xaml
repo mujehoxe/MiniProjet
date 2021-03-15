@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       >
 
-	<StackPanel Orientation="Horizontal">
+	<StackPanel Background="LightGray" Orientation="Horizontal">
 		<Image Name="ProfilePicture" Margin="20" Height="100" Width="100" HorizontalAlignment="Left" Source="https://img.icons8.com/cotton/2x/person-male.png" Stretch="Fill" />
 		<StackPanel Margin="20" Background="{x:Null}">
 			<StackPanel Orientation="Horizontal">

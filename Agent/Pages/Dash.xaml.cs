@@ -26,11 +26,16 @@ namespace Agent.Pages
 			Pages.Productions p = new Pages.Productions();
 			ProductionsFrame.Navigate(p);
 
+			Assets.Profile profile = new Assets.Profile();
+			ProfileFrame.Content = profile;
+
 			for (int i = 0; i < 19; i++)
 			{
 				p.CreateProductionCard("Article" + i, "title" + i, i);
 			}
 
 		}
+
+		public object ProfileInfo { get; }
 	}
 }
