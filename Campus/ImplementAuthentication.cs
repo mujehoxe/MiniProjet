@@ -1,5 +1,6 @@
 ﻿using Shared;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -16,17 +17,48 @@ namespace Campus
             Console.WriteLine("loging in with " + username + password);
             
             var command = QueryUser(username, password);
+            Profile p = ReadDataReturnProfile(command);
+            command = QueryUserRoles(p.Id);
+            p.Roles = ReadRoles(command);
+            return p;
+        }
 
-            return ReadDataReturnProfile(command);
+        private List<string> ReadRoles(SqliteCommand command)
+        {
+            List<string> roles = new List<string>();
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    roles.Add(reader.GetString(1));
+                }
+            }
+            return roles;
+        }
+
+        private SqliteCommand QueryUserRoles(int userId)
+        {
+            var command = Program.SqlConn.CreateCommand();
+            command.CommandText = @"
+                select *
+                from employees_role er
+                where (
+                    select Id
+                    from employee
+                    where Id = $userId
+                ) = er.EmployeeId
+            ";
+            command.Parameters.AddWithValue("$userId", userId);
+            return command;
         }
 
         private static SqliteCommand QueryUser(string username, string password)
         {
             var command = Program.SqlConn.CreateCommand();
             command.CommandText = @"
-                SELECT Id, Fullname, Username, Email, Field ,TeamID
-                FROM employee
-                WHERE Username = $username and Password = $password
+                select Id, Fullname, Username, Email, Field ,TeamID
+                from employee
+                where Username = $username and Password = $password
             ";
             command.Parameters.AddWithValue("$username", username);
             command.Parameters.AddWithValue("$password", password);
@@ -39,7 +71,14 @@ namespace Campus
             {
                 while (reader.Read())
                 {
-                    return new Profile(reader[0], reader[1], reader[2], reader[3], reader[4], reader[5]);
+                    return new Profile(
+                        reader.GetInt32(0),
+                        reader.GetString(1),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4),
+                        reader.GetInt32(5)
+                    );
                 }
                 return null;
             }
