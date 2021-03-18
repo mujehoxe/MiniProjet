@@ -23,13 +23,17 @@ namespace Agent.Assets
 		public Profile(Shared.Profile p)
 		{
 			InitializeComponent();
-			this.FullName.Content = p.Fullname;
+			this.ID.Content = p.Id;
+			this.Username.Content = p.Username;
+			this.Fullname.Content = p.Fullname;
+			this.Email.Content = p.Email;
+
+			this.TeamId.Content = p.TeamId;
 			foreach (string role in p.Roles)
 			{
-				this.Roles.Content += " " + role;
+				this.Roles.Content += ", " + role;
 			}
-			this.TeamId.Content = p.TeamId;
-			this.Email.Content = p.Email;
+			this.Field.Content = p.Field;
 		}
 	}
 }

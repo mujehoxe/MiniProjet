@@ -23,27 +23,54 @@ namespace Agent.Pages
         public LoginPage()
         {
             InitializeComponent();
-            usernameBox.Focus();
-            usernameBox.Select(0, usernameBox.Text.Length);
+            Username.Focus();
+            Username.Select(0, Username.Text.Length);
         }
 
         public void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = usernameBox.Text;
-            string password = passwordBox.Password;
+            string username = Username.Text;
+            string password = Password.Password;
 
-            var mainwindow = (Application.Current.MainWindow as MainWindow);
-            IUser a = (IUser) mainwindow.User;
-            a.Login(username, password);
+            var mainWindow = (Application.Current.MainWindow as MainWindow);
+
+            try
+            {
+                Shared.Profile profile = mainWindow.AuthenticationObject.Login(username, password);
+                if (profile != null)
+                {
+                    Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
+                        profile.Username, profile.Email, profile.Field, profile.TeamId);
+
+                    mainWindow.MainFrame.Navigate(new Pages.Dash(profile));
+
+                    mainWindow.User.Profile = profile;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong credentials");
+
+                    Pages.LoginPage p = mainWindow.MainFrame.Content as Pages.LoginPage;
+                    p.SetPasswordBox("");
+                    p.SetErrors("Wrong credentials, try oussama oussama");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                Pages.LoginPage p = mainWindow.MainFrame.Content as Pages.LoginPage;
+                p.SetErrors(ex.Message);
+            }
         }
 
         public void SetUsernameBox(string username)
         {
-            this.usernameBox.Text = username;
+            this.Username.Text = username;
         }
         public void SetPasswordBox(string password)
         {
-            this.passwordBox.Password = password;
+            this.Password.Password = password;
         }
         public void SetErrors(string errors)
         {

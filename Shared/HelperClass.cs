@@ -23,6 +23,7 @@ namespace Shared
         public string Email { get; set; }
         public string Field { get; set; }
         public int TeamId { get; set; }
+
         public List<string> Roles { get; set; }
         public List<ScientificProduction> ScientificProductions { get; set; }
         

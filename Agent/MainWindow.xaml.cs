@@ -24,7 +24,7 @@ namespace Agent
     /// </summary>
     public partial class MainWindow : Window
     {
-        public IUser User { get; set; }
+        public User User { get; set; }
         public HttpChannel Channel { get; set; }
         public IAuthenticate AuthenticationObject { get; set; }
 
@@ -35,7 +35,7 @@ namespace Agent
 
             Channel = new HttpChannel();
             ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/obj");
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/obj");
         }
     }
 }

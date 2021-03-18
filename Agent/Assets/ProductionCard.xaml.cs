@@ -20,12 +20,12 @@ namespace Agent.Assets
 	/// </summary>
 	public partial class ProductionCard : UserControl
 	{
-		public ProductionCard(string type, string title)
+		public ProductionCard(Shared.ScientificProduction sp)
 		{
 			InitializeComponent();
 
-			Type.Content = type;
-			Title.Content = title;
+			Type.Content = sp.Type;
+			Title.Content = sp.Title;
 		}
 	}
 }

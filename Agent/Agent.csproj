@@ -62,6 +62,7 @@
     <Compile Include="Assets\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NotifyImplementation.cs" />
     <Compile Include="Pages\Dash.xaml.cs">
       <DependentUpon>Dash.xaml</DependentUpon>
     </Compile>
