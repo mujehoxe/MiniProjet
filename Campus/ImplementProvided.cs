@@ -3,6 +3,7 @@ using Shared;
 
 namespace Campus
 {
+    [Serializable]
     public class ImplementResearcher : MarshalByRefObject, Shared.IResearcher
     {
         public ImplementResearcher(Profile profile)
@@ -12,8 +13,9 @@ namespace Campus
 
         private Profile Profile;
         
-        public Profile RetriveProfile()
+        public Profile RetrieveProfile()
         {
+            Console.WriteLine("retrieving profile");
             return Profile;
         }
 

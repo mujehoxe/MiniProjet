@@ -6,7 +6,7 @@ namespace Shared
 {
     public interface IAuthenticate
     {
-        IUser Login(string username, string password, INotify client);
+        IResearcher Login(string username, string password, INotify client);
         bool Logout();
         bool Verify_User(string password);
     }

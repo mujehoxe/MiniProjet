@@ -9,12 +9,12 @@ namespace Campus
     {
         private Dictionary<int, INotify> Clients { get; }
 
-        public ImplementAuthentication(Dictionary<int, INotify> clients)
+        public ImplementAuthentication()
         {
-            Clients = clients;
+            Clients = new Dictionary<int, INotify>();
         }
 
-        public IUser Login(string username, string password, INotify clientActivatedObject)
+        public IResearcher Login(string username, string password, INotify clientActivatedObject)
         {
             Console.WriteLine("loging in with " + username + password);
             
