@@ -5,21 +5,19 @@ using System.Text;
 
 namespace Shared
 {
-    public interface IUser{}
-    public interface ILabManager : IUser
+    interface ILabManager
     {
         bool ModifyProfile(Profile profile);
         void OrganizeManifestation(DateTime date);
         void AffiliateResearcher(string researcherid, string teamid);
         void ModifyTeamLead(string teamid, string researcherid);
     }
-
-    public interface IResearcher : IUser
+    interface IResearcher
     {
         bool ModifyProfile(Profile profile);
-        string PublishScientificProduction(ScientificProduction S, int researcherId);
+        bool PublishScientificProduction(ScientificProduction S);
     }
-    public interface ILead : IUser
+    interface ILead
     {
          
     }

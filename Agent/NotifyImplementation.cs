@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Agent
 {
-    class NotifyImplementation : Shared.INotify
+    class NotifyImplementation : MarshalByRefObject, Shared.INotify
     {
         public void InformResearcherWithSameField(ScientificProduction sp)
         {
-            
+            Console.WriteLine("{1} \t {2} \t {3}", sp.Content, sp.Title, sp.Type);
         }
     }
 }
