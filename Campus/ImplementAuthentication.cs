@@ -32,7 +32,10 @@ namespace Campus
             }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
+=======
+>>>>>>> nmjkh
             return p;
 =======
             return null;
