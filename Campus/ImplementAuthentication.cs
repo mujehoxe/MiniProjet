@@ -1,7 +1,7 @@
-﻿using Shared;
+﻿using Microsoft.Data.Sqlite;
+using Shared;
 using System;
 using System.Collections.Generic;
-using Microsoft.Data.Sqlite;
 
 namespace Campus
 {
@@ -17,7 +17,7 @@ namespace Campus
         public IResearcher Login(string username, string password, INotify clientActivatedObject)
         {
             Console.WriteLine("loging in with " + username + password);
-            
+
             var command = QueryUser(username, password);
             Profile p = ReadDataReturnProfile(command);
 
@@ -28,9 +28,9 @@ namespace Campus
                 command = QueryUserProducions(p.Id);
                 p.ScientificProductions = ReadProductions(command);
                 Clients.Add(p.Id, clientActivatedObject);
-                
+
                 Console.WriteLine("obj ref implemented");
-                return (IResearcher) new ImplementResearcher(p);
+                return (IResearcher)new ImplementResearcher(p);
             }
             return null;
         }
@@ -135,7 +135,7 @@ namespace Campus
         {
             throw new NotImplementedException();
         }
-        
+
         public bool Verify_User(string password)
         {
             throw new NotImplementedException();

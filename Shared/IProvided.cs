@@ -1,7 +1,4 @@
-﻿using Shared;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Shared
 {
@@ -19,7 +16,7 @@ namespace Shared
         void ModifyTeamLead(string teamid, string researcherid);
     }
 
-    
+
     public interface IResearcher : IUser
     {
         bool ModifyProfile(Profile profile);
@@ -29,6 +26,6 @@ namespace Shared
 
     public interface ILead : IUser
     {
-         
+
     }
 }

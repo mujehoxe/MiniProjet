@@ -1,11 +1,7 @@
-﻿using System;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Configuration;
-using System.Runtime.Remoting.Channels.Http;
-using Microsoft.Data.Sqlite;
-using Shared;
+using System.Runtime.Remoting;
 
 
 namespace Campus
@@ -21,14 +17,14 @@ namespace Campus
             RemotingServices.Marshal(authenticationObj, "AuthenticationObj.rem", typeof(ImplementAuthentication));
 
             OpenDatabaseConnection();
-            
+
 
             Console.WriteLine("Sever is  Ready........");
             Console.Read();
             SqlConn.Close();
         }
 
-        private static void OpenDatabaseConnection() 
+        private static void OpenDatabaseConnection()
         {
             try
             {

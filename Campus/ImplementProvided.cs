@@ -1,5 +1,5 @@
-using System;
 using Shared;
+using System;
 
 namespace Campus
 {
@@ -11,7 +11,7 @@ namespace Campus
         }
 
         private Profile Profile;
-        
+
         public Profile RetrieveProfile()
         {
             Console.WriteLine("retrieving profile");
@@ -35,11 +35,13 @@ namespace Campus
             command.Parameters.AddWithValue("$title", S.Title);
             command.Parameters.AddWithValue("$content", S.Content);
 
-            try {
+            try
+            {
                 command.ExecuteNonQuery();
                 return "done";
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return e.Message;
             }
         }
