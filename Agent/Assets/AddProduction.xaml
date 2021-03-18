@@ -30,14 +30,14 @@
 
 		<TextBlock Grid.Row="2" Margin="20,0,0,10" TextWrapping="Wrap" Text="Content" Width="65" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left"/>
 
-		<TextBox Grid.Row="3" HorizontalScrollBarVisibility="Auto"
+        <TextBox x:Name="ContentBox" Grid.Row="3" HorizontalScrollBarVisibility="Auto"
 					VerticalScrollBarVisibility="Auto"
-					TextWrapping="Wrap" AcceptsReturn="False" AcceptsTab="True" x:Name="ContentBox" Margin="20,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="1,1,1,1" />
+					TextWrapping="Wrap" AcceptsReturn="False" AcceptsTab="True" Margin="20,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="1,1,1,1" />
 
 		<StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
 			<Button x:Name="CancelButton" Padding="10" Margin="10,0" Content="Cancel" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="CancelButtonClicked"/>
-				<Button x:Name="SubmitButton" Padding="10" Margin="10,0" Content="Submit" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="SubmitButtonClicked"/>
-			</StackPanel>
+			<Button x:Name="SubmitButton" Padding="10" Margin="10,0" Content="Submit" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="SubmitButtonClicked"/>
+		</StackPanel>
 		
 	</Grid>
 </UserControl>

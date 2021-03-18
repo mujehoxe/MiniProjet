@@ -21,33 +21,42 @@ namespace Agent.Assets
 	/// </summary>
 	public partial class Productions : UserControl
 	{
+		private int CurrentColumn;
+		private int CurrentRow;
 		public Productions(List<Shared.ScientificProduction> productions)
 		{
 			InitializeComponent();
-			int i = 0;
+			CurrentColumn = 0;
+			CurrentRow = 0;
 			foreach (Shared.ScientificProduction sp in productions)
 			{
-				this.CreateProductionCard(sp.Type, sp.Title, i);
-				i++;
+				CreateAndPlaceProductionCard(sp);
 			}
 		}
 
-		public Assets.ProductionCard CreateProductionCard(string type, string title, int index)
-		{
-			Assets.ProductionCard productionCard = new Assets.ProductionCard(type, title);
-			this.Grid.Children.Add(productionCard);
-			int column = index % this.Grid.ColumnDefinitions.Count;
-			int row = index / 3;
-			if (column == 0)
-			{
-				this.Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
-			}
-			Grid.SetColumn(productionCard, column);
-			Grid.SetRow(productionCard, row);
-			return productionCard;
-		}
+		public void CreateAndPlaceProductionCard(Shared.ScientificProduction sp)
+        {
+            ProductionCard productionCard = new Assets.ProductionCard(sp);
+            this.Grid.Children.Add(productionCard);
 
-		private void AddButtonClicked(object sender, RoutedEventArgs e)
+			TronsformToColumnAndRow();
+
+            Grid.SetColumn(productionCard, CurrentColumn);
+            Grid.SetRow(productionCard, CurrentRow);
+        }
+
+        private void TronsformToColumnAndRow()
+        {
+            CurrentColumn = Grid.Children.Count % this.Grid.ColumnDefinitions.Count;
+            CurrentRow = Grid.Children.Count / this.Grid.ColumnDefinitions.Count;
+
+            if (CurrentColumn == 0)
+            {
+                this.Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
+            }
+        }
+
+        private void AddButtonClicked(object sender, RoutedEventArgs e)
 		{
 			(((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame.Navigate(new Assets.AddProduction());
 			//(this.Parent as Frame).Navigate(new Assets.AddProduction());

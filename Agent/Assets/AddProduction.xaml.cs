@@ -27,10 +27,10 @@ namespace Agent.Assets
 
 		private void CancelButtonClicked(object sender, RoutedEventArgs e)
 		{
-			Frame productionFrame = (((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame;
-			if (productionFrame.NavigationService.CanGoBack)
+			Frame productionsFrame = (((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame;
+			if (productionsFrame.NavigationService.CanGoBack)
 			{
-				productionFrame.NavigationService.GoBack();
+				productionsFrame.NavigationService.GoBack();
 			}
 			else
 			{
@@ -41,6 +41,7 @@ namespace Agent.Assets
 		private void SubmitButtonClicked(object sender, RoutedEventArgs e)
 		{
 			MessageBox.Show("Not implemented yet.");
+			
 		}
 	}
 }

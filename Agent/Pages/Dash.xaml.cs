@@ -26,7 +26,5 @@ namespace Agent.Pages
 			ProfileFrame.Navigate(new Assets.Profile(profile));
 			ProductionsFrame.Navigate(new Assets.Productions(profile.ScientificProductions));
 		}
-
-		public object ProfileInfo { get; }
 	}
 }
