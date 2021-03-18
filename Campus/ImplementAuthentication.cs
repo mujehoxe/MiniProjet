@@ -28,7 +28,9 @@ namespace Campus
                 command = QueryUserProducions(p.Id);
                 p.ScientificProductions = ReadProductions(command);
                 Clients.Add(p.Id, clientActivatedObject);
-                return new ImplementResearcher(p);
+                
+                Console.WriteLine("obj ref implemented");
+                return (IResearcher) new ImplementResearcher(p);
             }
             return null;
         }

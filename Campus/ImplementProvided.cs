@@ -3,7 +3,6 @@ using Shared;
 
 namespace Campus
 {
-    [Serializable]
     public class ImplementResearcher : MarshalByRefObject, Shared.IResearcher
     {
         public ImplementResearcher(Profile profile)
