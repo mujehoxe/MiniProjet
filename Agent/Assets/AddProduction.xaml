@@ -7,37 +7,37 @@
              mc:Ignorable="d" 
 			 FontSize="14"
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="auto"/>
-			<RowDefinition Height="auto"/>
-			<RowDefinition Height="auto"/>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="auto"/>
-		</Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
-		<StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="20" Orientation="Horizontal">
-				<TextBlock TextWrapping="Wrap" Text="Type" Width="65" FontFamily="Segoe UI Semibold"/>
-				<TextBox x:Name="TypeBox" AcceptsReturn="False" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
-			</StackPanel>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="20" Orientation="Horizontal">
+            <TextBlock TextWrapping="Wrap" Text="Type" Width="65" FontFamily="Segoe UI Semibold"/>
+            <TextBox x:Name="TypeBox" AcceptsReturn="False" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
+        </StackPanel>
 
-		<StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="20" Orientation="Horizontal">
-				<TextBlock TextWrapping="Wrap" Text="Title" Width="65" FontFamily="Segoe UI Semibold"/>
-				<TextBox x:Name="TitleBox" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
-			</StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="20" Orientation="Horizontal">
+            <TextBlock TextWrapping="Wrap" Text="Title" Width="65" FontFamily="Segoe UI Semibold"/>
+            <TextBox x:Name="TitleBox" Width="120" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="0,0,0,2" />
+        </StackPanel>
 
 
 
-		<TextBlock Grid.Row="2" Margin="20,0,0,10" TextWrapping="Wrap" Text="Content" Width="65" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="2" Margin="20,0,0,10" TextWrapping="Wrap" Text="Content" Width="65" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left"/>
 
         <TextBox x:Name="ContentBox" Grid.Row="3" HorizontalScrollBarVisibility="Auto"
 					VerticalScrollBarVisibility="Auto"
 					TextWrapping="Wrap" AcceptsReturn="False" AcceptsTab="True" Margin="20,0" Background="{x:Null}" BorderBrush="#88ABF2" BorderThickness="1,1,1,1" />
 
-		<StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
-			<Button x:Name="CancelButton" Padding="10" Margin="10,0" Content="Cancel" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="CancelButtonClicked"/>
-			<Button x:Name="SubmitButton" Padding="10" Margin="10,0" Content="Submit" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="SubmitButtonClicked"/>
-		</StackPanel>
-		
-	</Grid>
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="CancelButton" Padding="10" Margin="10,0" Content="Cancel" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="CancelButtonClicked"/>
+            <Button x:Name="SubmitButton" Padding="10" Margin="10,0" Content="Submit" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#88ABF2" Click="SubmitButtonClicked"/>
+        </StackPanel>
+
+    </Grid>
 </UserControl>

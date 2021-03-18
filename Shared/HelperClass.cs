@@ -26,9 +26,9 @@ namespace Shared
 
         public List<string> Roles { get; set; }
         public List<ScientificProduction> ScientificProductions { get; set; }
-        
+
     }
-    
+
     [Serializable]
     public class ScientificProduction
     {
@@ -38,7 +38,7 @@ namespace Shared
             Title = title;
             Content = content;
         }
-        
+
         public string Title { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }
