@@ -1,18 +1,20 @@
 ﻿using Shared;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 
 namespace Campus
 {
     class ImplementAuthentication : MarshalByRefObject, IAuthenticate
     {
-        public Profile Login(string username, string password)
+        private Dictionary<int, INotify> Clients { get; }
+
+        public ImplementAuthentication(Dictionary<int, INotify> clients)
+        {
+            Clients = clients;
+        }
+
+        public IUser Login(string username, string password, INotify clientActivatedObject)
         {
             Console.WriteLine("loging in with " + username + password);
             
@@ -25,9 +27,15 @@ namespace Campus
                 p.Roles = ReadRoles(command);
                 command = QueryUserProducions(p.Id);
                 p.ScientificProductions = ReadProductions(command);
+                Clients.Add(p.Id, clientActivatedObject);
+                return new ImplementResearcher(p);
             }
+<<<<<<< HEAD
             
             return p;
+=======
+            return null;
+>>>>>>> 7c5c408 (providing class)
         }
 
         private List<ScientificProduction> ReadProductions(SqliteCommand command)
