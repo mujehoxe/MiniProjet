@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Shared
 {
-    public interface IUser{}
+    public interface IUser
+    {
+        Profile RetrieveProfile();
+    }
     public interface ILabManager : IUser
     {
         bool ModifyProfile(Profile profile);
