@@ -31,8 +31,12 @@ namespace Campus
                 return new ImplementResearcher(p);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             
             return p;
+=======
+            return null;
+>>>>>>> 7c5c408 (providing class)
 =======
             return null;
 >>>>>>> 7c5c408 (providing class)
