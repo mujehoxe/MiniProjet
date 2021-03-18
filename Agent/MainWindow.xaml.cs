@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
 using System.Runtime.Remoting.Channels.Tcp;
@@ -25,7 +26,6 @@ namespace Agent
     public partial class MainWindow : Window
     {
         public User User { get; set; }
-        public HttpChannel Channel { get; set; }
         public IAuthenticate AuthenticationObject { get; set; }
 
         public MainWindow()
@@ -33,9 +33,11 @@ namespace Agent
             InitializeComponent();
             User = new Employee();
 
-            Channel = new HttpChannel();
-            ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/obj");
+            RemotingConfiguration.Configure("Agent.exe.config", false);
+
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/SAO.rem");
+
+            NotifyImplementation NotifictionsObject = new NotifyImplementation();
         }
     }
 }
