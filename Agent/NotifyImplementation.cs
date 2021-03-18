@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Agent
 {
-    class NotifyImplementation : MarshalByRefObject, Shared.INotify
+    public class NotifyImplementation : MarshalByRefObject, Shared.INotify
     {
         public void InformResearcherWithSameField(ScientificProduction sp)
         {

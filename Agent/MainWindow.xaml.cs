@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
 using System.Runtime.Remoting.Channels.Tcp;
@@ -25,17 +26,22 @@ namespace Agent
     public partial class MainWindow : Window
     {
         public User User { get; set; }
+        public NotifyImplementation Notifications { get; set; }
+
         public HttpChannel Channel { get; set; }
-        public IAuthenticate AuthenticationObject { get; set; }
+        public MarshalByRefObject DistantObject { get; set; }
+        public IResearcher PublishingObject { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             User = new Employee();
+            Notifications = new NotifyImplementation();
 
-            Channel = new HttpChannel();
+            Channel = new HttpChannel(0);
             ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/obj");
+            DistantObject = (MarshalByRefObject) RemotingServices.Connect(typeof(IAuthenticate),
+                "http://localhost:8085/obj");
         }
     }
 }

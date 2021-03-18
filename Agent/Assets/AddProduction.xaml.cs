@@ -20,6 +20,7 @@ namespace Agent.Assets
 	/// </summary>
 	public partial class AddProduction : UserControl
 	{
+		private Shared.ScientificProduction sp;
 		public AddProduction()
 		{
 			InitializeComponent();
@@ -40,8 +41,17 @@ namespace Agent.Assets
 		}
 		private void SubmitButtonClicked(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show("Not implemented yet.");
+			sp = new Shared.ScientificProduction(TypeBox.Text, TitleBox.Text, ContentBox.Text);
 
+			var mainWindow = (Application.Current.MainWindow as MainWindow);
+            try
+            {
+				mainWindow.PublishingObject.PublishScientificProduction(this.sp, mainWindow.User.Profile.Id);
+            }
+            catch(Exception ex)
+            {
+				Console.WriteLine(ex.Message);
+            }
 		}
 	}
 }
