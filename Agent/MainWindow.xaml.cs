@@ -26,22 +26,23 @@ namespace Agent
     public partial class MainWindow : Window
     {
         public User User { get; set; }
+
         public NotifyImplementation Notifications { get; set; }
 
-        public HttpChannel Channel { get; set; }
-        public MarshalByRefObject DistantObject { get; set; }
+        public IAuthenticate AuthenticationObj { get; set; }
         public IResearcher PublishingObject { get; set; }
-
+        
         public MainWindow()
         {
             InitializeComponent();
             User = new Employee();
             Notifications = new NotifyImplementation();
 
-            Channel = new HttpChannel(0);
-            ChannelServices.RegisterChannel(Channel, false);
-            DistantObject = (MarshalByRefObject) RemotingServices.Connect(typeof(IAuthenticate),
-                "http://localhost:8085/obj");
+            RemotingConfiguration.Configure("Agent.exe.config", false);
+
+            AuthenticationObj = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/AuthenticationObj.rem");
+
+            Notifications = new NotifyImplementation();
         }
     }
 }

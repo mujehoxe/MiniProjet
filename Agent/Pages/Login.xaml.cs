@@ -36,11 +36,11 @@ namespace Agent.Pages
 
             try
             {
-                Shared.IAuthenticate authenticationObj = mainWindow.DistantObject as Shared.IAuthenticate;
-                Shared.IResearcher researcher = authenticationObj.Login(username, password, mainWindow.Notifications);
+
+                Shared.IResearcher researcher = mainWindow.AuthenticationObj.Login(username, password, mainWindow.Notifications);
                 if (researcher != null)
                 {
-                    Shared.Profile profile = researcher.RetriveProfile();
+                    Shared.Profile profile = researcher.RetrieveProfile();
 
                     Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
                         profile.Username, profile.Email, profile.Field, profile.TeamId);

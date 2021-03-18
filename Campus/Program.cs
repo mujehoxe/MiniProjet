@@ -16,14 +16,12 @@ namespace Campus
 
         static void Main(string[] args)
         {
-            HttpChannel ch = new HttpChannel(8085);
-            ChannelServices.RegisterChannel(ch, false);
+            RemotingConfiguration.Configure("Campus.exe.config", false);
+            ImplementAuthentication authenticationObj = new ImplementAuthentication();
+            RemotingServices.Marshal(authenticationObj, "AuthenticationObj.rem", typeof(ImplementAuthentication));
 
             OpenDatabaseConnection();
             
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(ImplementAuthentication),
-                                                               "obj",
-                                                             WellKnownObjectMode.Singleton);
 
             Console.WriteLine("Sever is  Ready........");
             Console.Read();

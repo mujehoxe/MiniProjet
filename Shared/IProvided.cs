@@ -5,14 +5,11 @@ using System.Text;
 
 namespace Shared
 {
-<<<<<<< HEAD
-    public interface IUser{
-        Profile RetriveProfile();
-=======
+
+
     public interface IUser
     {
         Profile RetrieveProfile();
->>>>>>> 8c7369ae86bdf91aa4dc7847032720ac7e5d7669
     }
     public interface ILabManager : IUser
     {
