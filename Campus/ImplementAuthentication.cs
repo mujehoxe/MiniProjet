@@ -33,6 +33,7 @@ namespace Campus
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
 >>>>>>> nmjkh
@@ -43,6 +44,9 @@ namespace Campus
 =======
             return null;
 >>>>>>> 7c5c408 (providing class)
+=======
+            return null;
+>>>>>>> providing class
         }
 
         private List<ScientificProduction> ReadProductions(SqliteCommand command)
