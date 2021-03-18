@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Shared
 {
-    public interface ILabManager
+    public interface IUser{}
+    public interface ILabManager : IUser
     {
         bool ModifyProfile(Profile profile);
         void OrganizeManifestation(DateTime date);
@@ -13,12 +14,12 @@ namespace Shared
         void ModifyTeamLead(string teamid, string researcherid);
     }
 
-    public interface IResearcher
+    public interface IResearcher : IUser
     {
         bool ModifyProfile(Profile profile);
         string PublishScientificProduction(ScientificProduction S, int researcherId);
     }
-    public interface ILead
+    public interface ILead : IUser
     {
          
     }
