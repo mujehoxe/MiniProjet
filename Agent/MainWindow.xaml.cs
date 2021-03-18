@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
 using System.Runtime.Remoting.Channels.Tcp;
@@ -26,6 +25,7 @@ namespace Agent
     public partial class MainWindow : Window
     {
         public User User { get; set; }
+        public HttpChannel Channel { get; set; }
         public IAuthenticate AuthenticationObject { get; set; }
 
         public MainWindow()
@@ -33,6 +33,7 @@ namespace Agent
             InitializeComponent();
             User = new Employee();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             RemotingConfiguration.Configure("Agent.exe.config", false);
 
@@ -44,6 +45,11 @@ namespace Agent
             ChannelServices.RegisterChannel(Channel, false);
             AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://localhost:8085/obj");
 >>>>>>> nmjkh
+=======
+            Channel = new HttpChannel();
+            ChannelServices.RegisterChannel(Channel, false);
+            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/obj");
+>>>>>>> 155f711b586b9d28daa35bef4d136ca31f5e95ff
         }
     }
 }

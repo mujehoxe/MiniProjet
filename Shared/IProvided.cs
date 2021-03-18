@@ -9,6 +9,7 @@ namespace Shared
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     interface ILabManager
 =======
     public interface IUser{}
@@ -25,12 +26,16 @@ namespace Shared
     public interface IUser{}
     public interface ILabManager : IUser
 >>>>>>> providing class
+=======
+    interface ILabManager
+>>>>>>> 155f711b586b9d28daa35bef4d136ca31f5e95ff
     {
         bool ModifyProfile(Profile profile);
         void OrganizeManifestation(DateTime date);
         void AffiliateResearcher(string researcherid, string teamid);
         void ModifyTeamLead(string teamid, string researcherid);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     interface IResearcher
@@ -49,10 +54,14 @@ namespace Shared
 =======
     public interface IResearcher : IUser
 >>>>>>> providing class
+=======
+    interface IResearcher
+>>>>>>> 155f711b586b9d28daa35bef4d136ca31f5e95ff
     {
         bool ModifyProfile(Profile profile);
         string PublishScientificProduction(ScientificProduction S, int researcherId);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -70,6 +79,9 @@ namespace Shared
 =======
     public interface ILead : IUser
 >>>>>>> providing class
+=======
+    interface ILead
+>>>>>>> 155f711b586b9d28daa35bef4d136ca31f5e95ff
     {
          
     }
