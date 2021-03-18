@@ -34,11 +34,11 @@ namespace Agent
 
     public class Lead : Researcher
     {
-        
+
     }
 
     public class Manager
     {
-        
+
     }
 }

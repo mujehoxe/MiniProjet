@@ -33,23 +33,9 @@ namespace Agent
             InitializeComponent();
             User = new Employee();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            RemotingConfiguration.Configure("Agent.exe.config", false);
-
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/SAO.rem");
-
-            NotifyImplementation NotifictionsObject = new NotifyImplementation();
-=======
-            Channel = new HttpChannel();
-            ChannelServices.RegisterChannel(Channel, false);
-            AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://localhost:8085/obj");
->>>>>>> nmjkh
-=======
             Channel = new HttpChannel();
             ChannelServices.RegisterChannel(Channel, false);
             AuthenticationObject = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "http://192.168.1.24:8085/obj");
->>>>>>> 155f711b586b9d28daa35bef4d136ca31f5e95ff
         }
     }
 }

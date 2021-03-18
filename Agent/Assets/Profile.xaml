@@ -8,13 +8,13 @@
       mc:Ignorable="d"
       >
 
-	<Grid Background="#FFC7C7C7">
+    <Grid Background="#FFC7C7C7">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-		<Image Name="ProfilePicture" Height="100" HorizontalAlignment="Left" Source="https://img.icons8.com/cotton/2x/person-male.png" Stretch="Fill" />
+        <Image Name="ProfilePicture" Height="100" HorizontalAlignment="Left" Source="https://img.icons8.com/cotton/2x/person-male.png" Stretch="Fill" />
         <StackPanel Grid.Column="1" Background="{x:Null}">
             <StackPanel Orientation="Horizontal">
                 <Label FontWeight="Bold">ID:</Label>

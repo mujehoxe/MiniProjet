@@ -35,28 +35,28 @@ namespace Agent.Assets
 		}
 
 		public void CreateAndPlaceProductionCard(Shared.ScientificProduction sp)
-        {
-            ProductionCard productionCard = new Assets.ProductionCard(sp);
-            this.Grid.Children.Add(productionCard);
+		{
+			ProductionCard productionCard = new Assets.ProductionCard(sp);
+			this.Grid.Children.Add(productionCard);
 
 			TronsformToColumnAndRow();
 
-            Grid.SetColumn(productionCard, CurrentColumn);
-            Grid.SetRow(productionCard, CurrentRow);
-        }
+			Grid.SetColumn(productionCard, CurrentColumn);
+			Grid.SetRow(productionCard, CurrentRow);
+		}
 
-        private void TronsformToColumnAndRow()
-        {
-            CurrentColumn = Grid.Children.Count % this.Grid.ColumnDefinitions.Count;
-            CurrentRow = Grid.Children.Count / this.Grid.ColumnDefinitions.Count;
+		private void TronsformToColumnAndRow()
+		{
+			CurrentColumn = Grid.Children.Count % this.Grid.ColumnDefinitions.Count;
+			CurrentRow = Grid.Children.Count / this.Grid.ColumnDefinitions.Count;
 
-            if (CurrentColumn == 0)
-            {
-                this.Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
-            }
-        }
+			if (CurrentColumn == 0)
+			{
+				this.Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength() });
+			}
+		}
 
-        private void AddButtonClicked(object sender, RoutedEventArgs e)
+		private void AddButtonClicked(object sender, RoutedEventArgs e)
 		{
 			(((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame.Navigate(new Assets.AddProduction());
 			//(this.Parent as Frame).Navigate(new Assets.AddProduction());

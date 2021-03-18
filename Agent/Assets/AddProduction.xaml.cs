@@ -36,12 +36,12 @@ namespace Agent.Assets
 			{
 				MessageBox.Show("No entries in back navigation history.");
 			}
-			
+
 		}
 		private void SubmitButtonClicked(object sender, RoutedEventArgs e)
 		{
 			MessageBox.Show("Not implemented yet.");
-			
+
 		}
 	}
 }
