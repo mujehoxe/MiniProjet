@@ -26,7 +26,6 @@ namespace Campus
                 command = QueryUserProducions(p.Id);
                 p.ScientificProductions = ReadProductions(command);
             }
-            
             return p;
         }
 
