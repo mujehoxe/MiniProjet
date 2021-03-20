@@ -20,7 +20,7 @@ namespace Shared
     public interface IResearcher : IUser
     {
         bool ModifyProfile(Profile profile);
-        string PublishScientificProduction(ScientificProduction S, int researcherId);
+        string PublishScientificProductionAndNotify(ScientificProduction sp, Profile researcherProfile);
     }
 
 

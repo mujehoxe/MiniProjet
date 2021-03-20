@@ -2,6 +2,7 @@
 using System;
 using System.Runtime.Remoting;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Agent
 {
@@ -21,13 +22,11 @@ namespace Agent
         {
             InitializeComponent();
             User = new Employee();
-            Notifications = new NotifyImplementation();
+            Notifications = new NotifyImplementation(this);
 
             RemotingConfiguration.Configure("Agent.exe.config", false);
 
             AuthenticationObj = (IAuthenticate)Activator.GetObject(typeof(IAuthenticate), "tcp://localhost:8085/AuthenticationObj.rem");
-
-            Notifications = new NotifyImplementation();
         }
     }
 }

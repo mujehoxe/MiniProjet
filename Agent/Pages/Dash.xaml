@@ -20,21 +20,9 @@
 			<ColumnDefinition Width="5*"/>
 		</Grid.ColumnDefinitions>
 
-		<Grid Grid.Column="1">
-			<Grid.Background>
-				<SolidColorBrush Color="white"/>
-			</Grid.Background>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="auto"/>
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
+        <Frame Grid.Column="1" Name="ProfileFrame" NavigationUIVisibility="Hidden"/>
 
-			<Frame Name="ProfileFrame" NavigationUIVisibility="Hidden"/>
-			<Frame Name="ProductionsFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-
-		</Grid>
-
-		<ListBox  HorizontalContentAlignment="Stretch" SelectedItem="0" Background="{DynamicResource PanelColor}">
+        <ListBox Name="SidePanel" HorizontalContentAlignment="Stretch" SelectedItem="1" Background="{DynamicResource PanelColor}" >
 			<ListBox.ItemContainerStyle>
 				<Style TargetType="ListBoxItem">
 					<Style.Triggers>
@@ -42,11 +30,15 @@
 							<Setter Property="Background" Value="Transparent" />
 							<Setter Property="BorderThickness" Value="0,0,10,0" />
 						</Trigger>
-					</Style.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0,0,10,0" />
+                        </Trigger>
+                    </Style.Triggers>
 				</Style>
 			</ListBox.ItemContainerStyle>
-			<Label BorderThickness="0,0,0,0" BorderBrush="#FF182F5F" Foreground="Black" FontSize="20" Margin ="0,10" Padding="10,10" Background="{DynamicResource ListItemColor}">Profile</Label>
-			<Label BorderThickness="0,0,0,0" BorderBrush="#FF182F5F" Foreground="Black" FontSize="20" Margin ="0,10" Padding="10,10" Background="{DynamicResource ListItemColor}">Operations</Label>
+            <Label PreviewMouseDown="ProfileLableClicked" x:Name="ProfileLable" BorderThickness="0,0,0,0" BorderBrush="#FF182F5F" Foreground="Black" FontSize="20" Margin ="0,10" Padding="10,10" Background="{DynamicResource ListItemColor}">Profile</Label>
+            <Label PreviewMouseDown="NotificationsLableClicked" x:Name="NotificationsLable" BorderThickness="0,0,0,0" BorderBrush="#FF182F5F" Foreground="Black" FontSize="20" Margin ="0,10" Padding="10,10" Background="{DynamicResource ListItemColor}">Notifications</Label>
 		</ListBox>
 	</Grid>
 

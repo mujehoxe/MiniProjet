@@ -25,15 +25,15 @@ namespace Agent.Assets
         public void CreateAndPlaceProductionCard(Shared.ScientificProduction sp)
         {
             ProductionCard productionCard = new Assets.ProductionCard(sp);
+
+            TransformToColumnAndRow();
+
             this.Grid.Children.Add(productionCard);
-
-            TronsformToColumnAndRow();
-
             Grid.SetColumn(productionCard, CurrentColumn);
             Grid.SetRow(productionCard, CurrentRow);
         }
 
-        private void TronsformToColumnAndRow()
+        private void TransformToColumnAndRow()
         {
             CurrentColumn = Grid.Children.Count % this.Grid.ColumnDefinitions.Count;
             CurrentRow = Grid.Children.Count / this.Grid.ColumnDefinitions.Count;
@@ -46,7 +46,8 @@ namespace Agent.Assets
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            (((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame.Navigate(new Assets.AddProduction());
+            var mainWindow = (Application.Current.MainWindow as MainWindow);
+            (((mainWindow.MainFrame as Frame).Content as Pages.Dash).ProfileFrame.Content as Pages.Profile).ProductionsFrame.Navigate(new Assets.AddProduction());
             //(this.Parent as Frame).Navigate(new Assets.AddProduction());
         }
     }

@@ -59,8 +59,11 @@
     <Compile Include="Assets\AddProduction.xaml.cs">
       <DependentUpon>AddProduction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
+    <Compile Include="Assets\NotificationCard.xaml.cs">
+      <DependentUpon>NotificationCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ProfileCard.xaml.cs">
+      <DependentUpon>ProfileCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotifyImplementation.cs" />
     <Compile Include="Pages\Dash.xaml.cs">
@@ -68,6 +71,12 @@
     </Compile>
     <Compile Include="Assets\Productions.xaml.cs">
       <DependentUpon>Productions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Notifications.xaml.cs">
+      <DependentUpon>Notifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Assets\ProductionCard.xaml.cs">
@@ -77,7 +86,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\Profile.xaml">
+    <Page Include="Assets\NotificationCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ProfileCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +122,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\ProductionCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Notifications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

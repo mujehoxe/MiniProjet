@@ -2,6 +2,6 @@
 {
     public interface INotify
     {
-        void InformResearcherWithSameField(ScientificProduction sp);
+        void InformNewProduction(ScientificProduction sp, Profile researcher);
     }
 }

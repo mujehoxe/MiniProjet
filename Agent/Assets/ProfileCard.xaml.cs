@@ -5,9 +5,9 @@ namespace Agent.Assets
     /// <summary>
     /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class Profile : UserControl
+    public partial class ProfileCard : UserControl
     {
-        public Profile(Shared.Profile p)
+        public ProfileCard(Shared.Profile p)
         {
             InitializeComponent();
             this.ID.Content = p.Id;

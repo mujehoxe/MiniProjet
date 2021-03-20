@@ -7,7 +7,7 @@ namespace Campus
 {
     class ImplementAuthentication : MarshalByRefObject, IAuthenticate
     {
-        private Dictionary<int, INotify> Clients { get; }
+        public Dictionary<int, INotify> Clients { get; }
 
         public ImplementAuthentication()
         {
@@ -27,9 +27,9 @@ namespace Campus
                 p.Roles = ReadRoles(command);
                 command = QueryUserProducions(p.Id);
                 p.ScientificProductions = ReadProductions(command);
+                
                 Clients.Add(p.Id, clientActivatedObject);
 
-                Console.WriteLine("obj ref implemented");
                 return (IResearcher)new ImplementResearcher(p);
             }
             return null;

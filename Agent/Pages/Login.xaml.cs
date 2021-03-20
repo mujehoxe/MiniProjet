@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Agent.Pages
 {
@@ -16,6 +17,14 @@ namespace Agent.Pages
             Username.Select(0, Username.Text.Length);
         }
 
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return || e.Key == Key.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
+        }
+
         public void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
@@ -26,10 +35,10 @@ namespace Agent.Pages
             try
             {
 
-                Shared.IResearcher researcher = mainWindow.AuthenticationObj.Login(username, password, mainWindow.Notifications);
-                if (researcher != null)
+                mainWindow.PublishingObject = mainWindow.AuthenticationObj.Login(username, password, mainWindow.Notifications);
+                if (mainWindow.PublishingObject != null)
                 {
-                    Shared.Profile profile = researcher.RetrieveProfile();
+                    Shared.Profile profile = mainWindow.PublishingObject.RetrieveProfile();
 
                     Console.WriteLine("{0} \t | {1} \t | {2} \t |\t {3}|\t {4}|\t {5}", profile.Id, profile.Fullname,
                         profile.Username, profile.Email, profile.Field, profile.TeamId);

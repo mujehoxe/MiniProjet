@@ -17,17 +17,24 @@ namespace Agent.Assets
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            Frame productionsFrame = (((Application.Current.MainWindow as MainWindow).MainFrame as Frame).Content as Pages.Dash).ProductionsFrame;
-            if (productionsFrame.NavigationService.CanGoBack)
+            var mainWindow = (Application.Current.MainWindow as MainWindow);
+            Frame productionsFrame = (((mainWindow.MainFrame as Frame).Content as Pages.Dash).ProfileFrame.Content as Pages.Profile).ProductionsFrame;
+            ReturnBackIfAvailable(productionsFrame);
+        }
+
+        private static void ReturnBackIfAvailable(Frame frame)
+        {
+            if (frame.NavigationService.CanGoBack)
             {
-                productionsFrame.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("No entries in back navigation history.");
+                Console.WriteLine(frame.Content);
+                frame.NavigationService.GoBack();
+                Console.WriteLine(frame.Content);
+                return;
             }
 
+            MessageBox.Show("No entries in back navigation history.");
         }
+
         private void SubmitButtonClicked(object sender, RoutedEventArgs e)
         {
             sp = new Shared.ScientificProduction(TypeBox.Text, TitleBox.Text, ContentBox.Text);
@@ -35,7 +42,16 @@ namespace Agent.Assets
             var mainWindow = (Application.Current.MainWindow as MainWindow);
             try
             {
-                mainWindow.PublishingObject.PublishScientificProduction(this.sp, mainWindow.User.Profile.Id);
+                string result = mainWindow.PublishingObject.PublishScientificProductionAndNotify(this.sp, mainWindow.User.Profile);
+                if(result == "done")
+                {
+                    Frame productionsFrame = (((mainWindow.MainFrame as Frame).Content as Pages.Dash).ProfileFrame.Content as Pages.Profile).ProductionsFrame;
+                    ReturnBackIfAvailable(productionsFrame);
+                }
+                else
+                {
+                    MessageBox.Show(result);
+                }
             }
             catch (Exception ex)
             {

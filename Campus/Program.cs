@@ -9,17 +9,21 @@ namespace Campus
     static class Program
     {
         public static SqliteConnection SqlConn { get; set; }
+        public static ImplementAuthentication AuthenticationObj { get; set; }
 
         static void Main(string[] args)
         {
             RemotingConfiguration.Configure("Campus.exe.config", false);
-            ImplementAuthentication authenticationObj = new ImplementAuthentication();
-            RemotingServices.Marshal(authenticationObj, "AuthenticationObj.rem", typeof(ImplementAuthentication));
+
+            AuthenticationObj = new ImplementAuthentication();
+            RemotingServices.Marshal(AuthenticationObj, "AuthenticationObj.rem", typeof(ImplementAuthentication));
+
+            foreach (var service in RemotingConfiguration.GetRegisteredWellKnownServiceTypes())
+                Console.WriteLine(service);
 
             OpenDatabaseConnection();
 
-
-            Console.WriteLine("Sever is  Ready........");
+            Console.WriteLine("server running...");
             Console.Read();
             SqlConn.Close();
         }
