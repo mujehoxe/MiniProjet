@@ -20,6 +20,8 @@ namespace Agent.Pages
     /// </summary>
     public partial class Profile : Page
     {
+        public Assets.Productions productions;
+
         public Profile()
         {
         }
@@ -27,8 +29,11 @@ namespace Agent.Pages
         public Profile(Shared.Profile profile)
         {
             InitializeComponent();
+
+            productions = new Assets.Productions(profile.ScientificProductions);
+
             ProfileCardFrame.Navigate(new Assets.ProfileCard(profile));
-            ProductionsFrame.Navigate(new Assets.Productions(profile.ScientificProductions));
+            ProductionsFrame.Navigate(productions);
         }
     }
 }

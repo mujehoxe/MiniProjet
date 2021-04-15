@@ -26,9 +26,7 @@ namespace Agent.Assets
         {
             if (frame.NavigationService.CanGoBack)
             {
-                Console.WriteLine(frame.Content);
                 frame.NavigationService.GoBack();
-                Console.WriteLine(frame.Content);
                 return;
             }
 
@@ -45,6 +43,9 @@ namespace Agent.Assets
                 string result = mainWindow.PublishingObject.PublishScientificProductionAndNotify(this.sp, mainWindow.User.Profile);
                 if(result == "done")
                 {
+                    Productions productions = (((mainWindow.MainFrame as Frame).Content as Pages.Dash).ProfileFrame.Content as Pages.Profile).productions;
+                    productions.CreateAndPlaceProductionCard(this.sp);
+
                     Frame productionsFrame = (((mainWindow.MainFrame as Frame).Content as Pages.Dash).ProfileFrame.Content as Pages.Profile).ProductionsFrame;
                     ReturnBackIfAvailable(productionsFrame);
                 }

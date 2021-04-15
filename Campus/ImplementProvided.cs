@@ -30,11 +30,11 @@ namespace Campus
             {
                 InsertScientificProductionQuery(sp, researcher.Id);
 
-                List<int> Ids = GetIDsOfResearchersInField(sp, researcher.Field);
+                List<int> Ids = GetIDsOfResearchersInField(researcher.Id, researcher.Field);
                 Notification notification = CreateNotification(sp, researcher);
                 foreach (int id in Ids)
                 {
-                    Notify(notification, researcher);
+                    Notify(notification, id);
                 }
 
                 return "done";
@@ -54,17 +54,17 @@ namespace Campus
             return n;
         }
 
-        private void Notify(Notification notification, Profile client)
+        private void Notify(Notification notification, int researcherId)
         {
-            if (Program.AuthenticationObj.Clients.TryGetValue(client.Id, out var researcher))
+            if (Program.AuthenticationObj.Clients.TryGetValue(researcherId, out var researcher))
             {
                 researcher.InformNewProduction(notification);
             }
         }
 
-        private List<int> GetIDsOfResearchersInField(ScientificProduction sp, string field)
+        private List<int> GetIDsOfResearchersInField(int publicherId, string field)
         {
-            Microsoft.Data.Sqlite.SqliteCommand command = ConstructResearchersInFieldsCommand(sp, field);
+            Microsoft.Data.Sqlite.SqliteCommand command = ConstructResearchersInFieldsCommand(publicherId, field);
 
             return ReadResearcherIDs(command);
         }
@@ -83,14 +83,15 @@ namespace Campus
             return Ids;
         }
 
-        private Microsoft.Data.Sqlite.SqliteCommand ConstructResearchersInFieldsCommand(ScientificProduction sp, string field)
+        private Microsoft.Data.Sqlite.SqliteCommand ConstructResearchersInFieldsCommand(int publicherId, string field)
         {
             var command = Program.SqlConn.CreateCommand();
             command.CommandText = @"
                 select Id
                 from employee
-                where employee.Field = $field         
+                where not employee.Id = $id and employee.Field = $field
             ";
+            command.Parameters.AddWithValue("$id", publicherId);
             command.Parameters.AddWithValue("$field", field);
             return command;
         }

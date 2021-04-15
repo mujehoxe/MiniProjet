@@ -24,7 +24,7 @@ namespace Agent.Pages
 
         public void CreateAndPlaceNotificationCard(Shared.Notification notification)
         {
-            Assets.NotificationCard notificationCard = new Assets.NotificationCard(notification.username, notification.title, notification.type);
+            Assets.NotificationCard notificationCard = new Assets.NotificationCard(notification.username, notification.type, notification.title);
 
             NotificationStack.Children.Add(notificationCard);
         }
