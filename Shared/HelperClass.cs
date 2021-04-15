@@ -4,6 +4,14 @@ using System.Collections.Generic;
 namespace Shared
 {
     [Serializable]
+    public class Notification
+    {
+        public string username;
+        public string type;
+        public string title;
+    }
+
+    [Serializable]
     public class Profile
     {
         public Profile(int id, string fullname, string username, string email, string field, int teamid)

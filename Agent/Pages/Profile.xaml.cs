@@ -20,6 +20,10 @@ namespace Agent.Pages
     /// </summary>
     public partial class Profile : Page
     {
+        public Profile()
+        {
+        }
+
         public Profile(Shared.Profile profile)
         {
             InitializeComponent();

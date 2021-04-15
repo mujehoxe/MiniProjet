@@ -31,8 +31,10 @@ namespace Campus
                 InsertScientificProductionQuery(sp, researcher.Id);
 
                 List<int> Ids = GetIDsOfResearchersInField(sp, researcher.Field);
-                foreach(int id in Ids){
-                    Notify(sp, researcher);
+                Notification notification = CreateNotification(sp, researcher);
+                foreach (int id in Ids)
+                {
+                    Notify(notification, researcher);
                 }
 
                 return "done";
@@ -43,11 +45,20 @@ namespace Campus
             }
         }
 
-        private void Notify(ScientificProduction sp, Profile client)
+        private static Notification CreateNotification(ScientificProduction sp, Profile researcher)
+        {
+            Notification n = new Notification();
+            n.username = researcher.Username;
+            n.type = sp.Type;
+            n.title = sp.Title;
+            return n;
+        }
+
+        private void Notify(Notification notification, Profile client)
         {
             if (Program.AuthenticationObj.Clients.TryGetValue(client.Id, out var researcher))
             {
-                researcher.InformNewProduction(sp, client);
+                researcher.InformNewProduction(notification);
             }
         }
 
@@ -78,7 +89,7 @@ namespace Campus
             command.CommandText = @"
                 select Id
                 from employee
-                where employee.Field = $field             
+                where employee.Field = $field         
             ";
             command.Parameters.AddWithValue("$field", field);
             return command;

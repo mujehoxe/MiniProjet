@@ -21,11 +21,13 @@ namespace Agent
         }
 
 
-        public void InformNewProduction(ScientificProduction sp, Profile researcher)
+        public void InformNewProduction(Notification notification)
         {
-            Console.WriteLine("{0} \t {1} \t {2} \t {3}", researcher.Fullname,sp.Content, sp.Title, sp.Type);
+            Console.WriteLine("{0} has published {1} under the title {2}", notification.username, notification.type, notification.title);
 
             //notificationsPage.CreateAndPlaceNotificationCard(sp, researcher);
+
+            notificationsPage.notifications.Add(notification);
         }
     }
 }

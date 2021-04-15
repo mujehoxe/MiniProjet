@@ -20,13 +20,13 @@ namespace Agent.Assets
     /// </summary>
     public partial class NotificationCard : UserControl
     {
-        public NotificationCard(Shared.ScientificProduction sp, Shared.Profile p)
+        public NotificationCard(string username, string type, string title)
         {
             InitializeComponent();
 
-            Username.Text = p.Username;
-            Type.Text = sp.Type;
-            Title.Text = sp.Title;
+            Username.Text = username;
+            Type.Text = type;
+            Title.Text = title;
         }
     }
 }
